@@ -107,8 +107,8 @@ fi
 # Status bar right side
 #
 
-tmux set-window-option -g status-right "#[fg=colour244]#S:#I:#P #[fg=colour240]${tmux_powerline_symbol_left_full}#[fg=colour231,bg=colour240] #H #[fg=colour252]${tmux_powerline_symbol_left_full}#[fg=black,bg=colour252,nobold] %b %d %a #[bold]%H:%M "
-tmux set-window-option -g status-right-length 80
+tmux set-window-option -g status-right "#[fg=colour244]#S:#I:#P #[fg=colour240]${tmux_powerline_symbol_left_full}#[fg=black,bg=colour252,nobold] #[bold]%H:%M "
+tmux set-window-option -g status-right-length 20
 
 #
 # Status bar window currently active
@@ -117,11 +117,11 @@ tmux set-window-option -g status-right-length 80
 if [ "${TMUX_POWERLINE_COMPACT_CURRENT}" = "on" ]; then
     tmux set-window-option -g window-status-current-format "#[fg=colour236]${tmux_powerline_symbol_right_full}#[default,fg=colour231,bold] #I${tmux_powerline_flag} #[default,fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
 else
-    tmux set-window-option -g window-status-current-format "#[fg=colour236]${tmux_powerline_symbol_right_full}#[default,bold] #I${tmux_powerline_flag} #[fg=colour123,reverse]${tmux_powerline_symbol_right_full}#[default]#[bg=colour123] #W #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
+    tmux set-window-option -g window-status-current-format "#[fg=colour236]${tmux_powerline_symbol_right_full}#[default,bold] #I${tmux_powerline_flag} #[fg=colour123,reverse]${tmux_powerline_symbol_right_full}#[default]#[fg=colour231,bg=colour240] #W: #{pane_current_path} #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
 fi
 
 # colour33 is green
-tmux set-window-option -g window-status-current-style none,bg=colour33,fg=black
+tmux set-window-option -g window-status-current-style none,bg=colour148,fg=colour22
 
 #
 # Status bar window in background (not active)
@@ -134,7 +134,7 @@ else
 fi
 
 # Black on green
-tmux set-window-option -g window-status-style none,bg=colour76,fg=black
+tmux set-window-option -g window-status-style none,bg=colour243,fg=colour231
 
 # Black on white
 #tmux set-window-option -g window-status-style bg=colour231,fg=black
@@ -146,7 +146,7 @@ tmux set-window-option -g window-status-style none,bg=colour76,fg=black
 # Status bar window last active (Tmux 1.8+)
 #
 
-tmux set-window-option -g window-status-last-style none,bg=cyan,fg=black
+tmux set-window-option -g window-status-last-style none,bg=colour247,fg=colour231
 
 #
 # Status bar window with activity/silence (monitor-activity, monitor-silence)
